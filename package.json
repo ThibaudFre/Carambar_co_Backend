@@ -1,0 +1,27 @@
+{
+  "name": "carambar_co_backend",
+  "version": "1.0.0",
+  "description": "This is the repository of the Carambar  &amp; co API Rest - a Crud wich allow the user to watch jokes (all jokes / By id/ or randomly)",
+  "homepage": "https://github.com/ThibaudFre/Carambar_co_Backend#readme",
+  "bugs": {
+    "url": "https://github.com/ThibaudFre/Carambar_co_Backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThibaudFre/Carambar_co_Backend.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
+  }
+}
