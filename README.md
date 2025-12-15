@@ -14,6 +14,17 @@ app is ready
 - The app is waiting to receive http requests. All requests are managed by routes and controller.
 3 routes exist:
 
-'/jokes/:jokeId' with Get method in order to get a joke by Idea
-'/jokes/' with Get method in order to get all the jokes
+---- WITH GET METHOD-----
 
+'/jokes/:jokeId' with GET method in order to get a joke by Idea
+'/jokes/' with GET method in order to get all the jokes
+'/randomjoke' with GET method in order to get a joke randomly.
+'/joke-list' with GET method in order to get the list of all the jokes.
+
+
+---- WITH POST METHOD-----
+
+'/jokes/ with POST which create a new instance of Jokes model and add it to the DB
+
+---> config.js is the configurations of the sequelizer instance
+---> db.js is the instance of Sequelizer named sequelizer and can be imported all in the application in order to avoid 
