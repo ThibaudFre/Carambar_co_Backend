@@ -38,4 +38,17 @@ const getJokeById = async (req, res) => {
     }
 }
 
-export { getAllJokes, getJokeById, getJokesList};
+const postNewJoke = async (req, res) => {
+    try {
+        const {riddle, answer}= req.body
+        const newJoke = await Joke.create({
+            riddle: riddle,
+            answer: answer
+        })
+        return res.status(200).json({message: `Your joke has been added ! It's a very funny joke by the way, Lol.`})
+    }catch (error) {
+        return res.status(400).json({ message: `your joke has not been added`, erreur: `${error}` })
+    }
+}
+
+export { getAllJokes, getJokeById, getJokesList, postNewJoke};
