@@ -2,8 +2,8 @@ import express from 'express';
 
 const router = express.Router()
 
-router.get('/jokes/:jokesId',(req,res)=>{
-    const jokeID = req.params.jokesId;
+router.get('/jokes/:jokeId',(req,res)=>{
+    const jokeID = req.params.jokeId;
     res.send(`test get jokes by id, the is is, ${jokeID}`)
 })
 
