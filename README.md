@@ -6,7 +6,7 @@ How it works:
 The servers is: 
 - creatting the DB strucuture using sequelize.sync() in order to create tables
 - creating the connection and using Port 3000 in dev mode or process.env in production
-- seeding the sqlite file with jokes.json a list of pre-written jokes using seedDatabase()
+- creating & seeding the sqlite file with jokes.json a list of pre-written jokes using seedDatabase()
 
 The server is ready
 app is ready
@@ -25,6 +25,9 @@ app is ready
 ---- WITH POST METHOD-----
 
 '/jokes/ with POST which create a new instance of Jokes model and add it to the DB
+
+
+--------------------------------------------------------------------------------------------------
 
 ---> config.js is the configurations of the sequelizer instance
 ---> db.js is the instance of Sequelizer named sequelizer and can be imported all in the application in order to avoid 
