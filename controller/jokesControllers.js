@@ -2,7 +2,9 @@ import Joke from "../models/index.js";
 
 const getAllJokes = async (req, res) => {
     try {
-        const jokes = await Joke.findAll();
+        const jokes = await Joke.findAll({
+            attributes: ['riddle', 'answer'],
+        });
         return res.status(200).json(jokes)
     } catch (error) {
         console.error(`getAllJokes didn't suceeded`)
@@ -38,6 +40,7 @@ const getJokeById = async (req, res) => {
     }
 }
 
+
 const postNewJoke = async (req, res) => {
     try {
         const {riddle, answer}= req.body
@@ -51,4 +54,18 @@ const postNewJoke = async (req, res) => {
     }
 }
 
-export { getAllJokes, getJokeById, getJokesList, postNewJoke};
+const getRandomJoke = async (req, res) => {
+    try {
+        const jokesCount = await Joke.count();
+        const randomJokeId = Math.floor(Math.random() * jokesCount) + 1;
+        const randomJoke = await Joke.findByPk(randomJokeId)
+        console.log(`randomJoke: ${randomJoke}`)
+        console.log(`jokesCount: ${jokesCount} + randomJokeId: ${randomJokeId}`)
+        return res.status(200).json({riddle: randomJoke.riddle, answer: randomJoke.answer})
+    } catch (error){
+        console.error(`getRandomJoke didn't suceeded`)
+        return res.status(500).json({ message: `Error server`, erreur: `${error}` })
+    }
+}
+
+export { getAllJokes, getJokeById, getJokesList, postNewJoke, getRandomJoke};

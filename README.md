@@ -18,8 +18,8 @@ app is ready
 
 '/jokes/:jokeId' with GET method in order to get a joke by Idea
 '/jokes/' with GET method in order to get all the jokes
-'/randomjoke' with GET method in order to get a joke randomly.
-'/joke-list' with GET method in order to get the list of all the jokes.
+'/random-joke' with GET method in order to get a joke randomly.
+'/joke-list' with GET method in order to get the list of all the jokes but only with their riddles and ids.
 
 
 ---- WITH POST METHOD-----
