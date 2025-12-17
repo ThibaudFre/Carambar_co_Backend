@@ -1,16 +1,17 @@
 import express from 'express';
 import sequelize from "./config/db.js";
 import seedDatabase from "./seeder/seed.js";
-import seeds from "./seeder/jokes.json" with {type: 'json'}
+import seeds from "./seeder/jokes.json" with {type: 'json'};
 import jokesRoutes from "./routes/jokesRoutes.js"
 import swaggerUi from 'swagger-ui-express';
 import YAML from "yamljs"
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
 const swaggerDocument = YAML.load('./config/swagger.yaml');
 
-
+app.use(cors());
 app.use(express.json());
 app.use(jokesRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

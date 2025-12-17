@@ -4,7 +4,7 @@ info:
   description: A API that **GET** *jokes* or allow to **POST** a new one
   version: 1.0.0
 servers:
-  - url: https://carambar-jokes-api.onrender.com
+  - url: https://carambar-co-backend.onrender.com
     description: Server managing on Production mode
   - url: http://localhost:3000
     description: Server managing on development mode
