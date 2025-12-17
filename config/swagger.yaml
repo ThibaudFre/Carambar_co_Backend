@@ -1,0 +1,146 @@
+openapi: 3.0.4
+info:
+  title: Carambar & co API
+  description: A API that **GET** *jokes* or allow to **POST** a new one
+  version: 1.0.0
+servers:
+  - url: https://carambar-jokes-api.onrender.com
+    description: Server managing on Production mode
+  - url: http://localhost:3000
+    description: Server managing on development mode
+tags:
+  - name: Jokes
+    description: Operations due to Jokes
+paths:
+  /jokes:
+    get:
+      summary: Returns a list of all the jokes saved in DB.
+      tags:
+        - Jokes
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Joke'
+        "500":
+          $ref: '#/components/responses/ErrorServer'
+    post:
+      summary: add a new joke
+      tags:
+        - Jokes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JokeRiddleAnswer'
+      responses:
+        '201':
+          description: Joke added with success
+        '400':
+          description: Joke adding didn't succeded
+        "500":
+          $ref: '#/components/responses/ErrorServer'
+        
+
+  /jokes/{jokeId}:
+    get:
+      summary: Returns a joke founded with an ID.
+      tags:
+        - Jokes
+      parameters:
+        - name: jokeId
+          in: path
+          required: true
+          description: the numeric Joke's ID to get
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: have return the single joke
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Joke'
+        "404":
+          description: No jokes has been founded with this ID
+        "500":
+          $ref: '#/components/responses/ErrorServer'
+
+  /jokes-list:
+    get:
+      summary: Return a list of just all the riddles
+      tags:
+        - Jokes
+      responses:
+        "200":
+          description:  the riddle list has been return
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/JokesRiddleId"
+        "500":
+          $ref: '#/components/responses/ErrorServer'
+
+  /joke-random:
+    get:
+      summary: Return a joke choosen randomly along the jokes list
+      tags:
+        - Jokes
+      responses:
+        "200":
+          description: the random joke has been given
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Joke'
+        "500":
+          $ref: '#/components/responses/ErrorServer'
+
+    
+
+components:
+  responses:
+    ErrorServer:
+      description: Internal Error Server
+
+  schemas:
+    Joke:
+      type: object
+      properties:
+        id:
+          type: integer
+        riddle:
+          type: string
+        answer:
+          type: string
+      example:
+        id: 11
+        riddle: "Qu'est-ce qui est jaune et qui court très vite ?"
+        answer: "Un citron pressé !"
+    JokeRiddleAnswer:
+      type: object
+      properties:
+        riddle:
+          type: string
+        answer:
+          type: string
+      example:
+        riddle: "Pourquoi les oiseaux volent-ils vers le sud ?"
+        answer: "Parce que c'est trop loin pour y aller à pied !"
+    JokesRiddleId:
+      type: object
+      properties:
+        riddle:
+          type: string
+        id:
+          type: integer
+      example:
+        id: 42
+        riddle: "Quelle est la femelle du dromadaire ?"

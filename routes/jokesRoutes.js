@@ -7,12 +7,11 @@ router.get('/jokes/:jokeId', getJokeById)
 
 router.get('/jokes/', getAllJokes)
 
-router.get('/joke-list', getJokesList)
+router.get('/jokes-list', getJokesList)
 
 router.post('/jokes/', postNewJoke)
 
-
-router.get('/random-joke', getRandomJoke)
+router.get('/joke-random', getRandomJoke)
 
 
 export default router;

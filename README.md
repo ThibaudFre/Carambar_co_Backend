@@ -31,3 +31,9 @@ app is ready
 
 ---> config.js is the configurations of the sequelizer instance
 ---> db.js is the instance of Sequelizer named sequelizer and can be imported all in the application in order to avoid 
+
+Links:
+- site:
+- Swagger: 
+    - http://localhost:3000/api-docs/ -----------> try it out in dev mode.
+    - https://carambar-jokes-api.onrender.com ---> try it out in production mode

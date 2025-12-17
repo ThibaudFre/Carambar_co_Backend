@@ -2,9 +2,7 @@ import Joke from "../models/index.js";
 
 const getAllJokes = async (req, res) => {
     try {
-        const jokes = await Joke.findAll({
-            attributes: ['riddle', 'answer'],
-        });
+        const jokes = await Joke.findAll();
         return res.status(200).json(jokes)
     } catch (error) {
         console.error(`getAllJokes didn't suceeded`)
@@ -48,7 +46,7 @@ const postNewJoke = async (req, res) => {
             riddle: riddle,
             answer: answer
         })
-        return res.status(200).json({message: `Your joke has been added ! It's a very funny joke by the way, Lol.`})
+        return res.status(201).json({message: `Your joke has been added ! It's a very funny joke by the way, Lol.`})
     }catch (error) {
         return res.status(400).json({ message: `your joke has not been added`, erreur: `${error}` })
     }
