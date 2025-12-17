@@ -6,9 +6,11 @@ import sequelize from "./../config/db.js";
 const Joke = sequelize.define('joke', {
     riddle: {
         type: DataTypes.STRING,
+        allowNull: false
     },
     answer: {
         type: DataTypes.STRING,
+        allowNull: false
     }
 },
     {
