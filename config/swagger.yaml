@@ -84,7 +84,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/JokesRiddleId"
+                  $ref: "#/components/schemas/JokesIdRiddle"
         "500":
           $ref: '#/components/responses/ErrorServer'
 
@@ -134,13 +134,13 @@ components:
       example:
         riddle: "Pourquoi les oiseaux volent-ils vers le sud ?"
         answer: "Parce que c'est trop loin pour y aller à pied !"
-    JokesRiddleId:
+    JokesIdRiddle:
       type: object
       properties:
-        riddle:
-          type: string
         id:
           type: integer
+        riddle:
+          type: string
       example:
         id: 42
         riddle: "Quelle est la femelle du dromadaire ?"

@@ -14,7 +14,7 @@ const getAllJokes = async (req, res) => {
 const getJokesList = async (req, res) => {
     try {
         const jokes = await Joke.findAll({
-            attributes: ['riddle', 'id'],
+            attributes: ['id', 'riddle'],
         })
         return res.status(200).json(jokes)
     } catch (error) {
