@@ -33,7 +33,7 @@ app is ready
 ---> db.js is the instance of Sequelizer named sequelizer and can be imported all in the application in order to avoid 
 
 Links:
-- website:
+- website: https://thibaudfre.github.io/Carambar_co_Frontend/
 - api url: https://carambar-co-backend.onrender.com
 - repo Github Frontend: https://github.com/ThibaudFre/Carambar_co_Frontend
 - repo Github Backend: https://github.com/ThibaudFre/Carambar_co_Backend
