@@ -1,6 +1,9 @@
 # Carambar-co---Backend
 This is the repository of the Carambar  &amp; co API Rest - a Crud wich allow the user to watch jokes (all jokes / By id/ or randomly)
 
+To use the API locally after cloning the repo, you can use the CLI command: npm run dev.
+It will launch the API locally on your localhost Port: 3000.
+
 How it works:
 
 The servers is: 
